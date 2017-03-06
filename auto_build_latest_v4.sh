@@ -103,7 +103,13 @@ if [ ! -f "${BIZ_APK_DES}" ]; then
   cp ${BIZ_APK_SRC} ${BIZ_APK_DES}
 fi
 
-cp ${BIZ_APK_SRC} ${BIZ_APK_DES}
+if [ ! -f "${BIZ_APK_DES}" ]
+then
+  echo "copying ...."
+  cp ${BIZ_APK_SRC} ${BIZ_APK_DES}
+else
+  echo "already exists: "${BIZ_APK_DES}
+fi
 
 echo  -e "\n\n ---------------  cache type  ---------------  "  && sleep 1s
 

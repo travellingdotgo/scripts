@@ -45,7 +45,7 @@ do
     GIT_URI=git@192.168.1.2:android-mtk8163e-kernel-${PRODUCT_NAME}/${data}.git
     echo $GIT_URI
     git clone $GIT_URI
-    cd ${data} && git checkout $GIT_BRANCH && cd -
+    cd ${data} && git checkout Feature8inch && cd -
 done
 
 cp build/Makefile               .
