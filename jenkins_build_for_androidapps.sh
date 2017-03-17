@@ -18,12 +18,13 @@ cd ${PROJ_NAME}
 #compile
 git checkout ${GIT_BRANCH}
 bash ./gradlew clean build
+aapt  dump badging ./app/build/outputs/apk/app-release.apk | grep version
 
 #cp & cleanup
 mkdir -p ${TARGET_PATH}
 cp -rf ./app/build/outputs/* ${TARGET_PATH}
 chmod 777 -R ${TARGET_PATH}
-rm -rf ${WORK_DIR}/${TIMESTAMP}
+#rm -rf ${WORK_DIR}/${TIMESTAMP}
 
 
 
