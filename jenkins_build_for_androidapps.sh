@@ -1,7 +1,9 @@
 #!/bin/bash
 
-. /etc/env_java18.sh
+#. /etc/env_java18.sh
 java -version
+
+set -e
 
 TIMESTAMP=$(date +%Y%m%d.%H%M%S)
 PROJ_NAME=$1
