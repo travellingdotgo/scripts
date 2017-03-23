@@ -47,7 +47,7 @@ TIMESTAMP=$(date +%Y%m%d.%H%M%S)
 echo "TIMESTAMP: "$TIMESTAMP
 
 APK_NAME=undefined.apk
-AOSP_FOLDER=aosp-notdefined
+AOSP_FOLDER=aosp_notdefined
 FTP_FOLDER=ftp://undefined.com/somefolder
 
 BIZ_APK_SRC=/undefined_latest.apk
@@ -63,7 +63,7 @@ case $product_type in
   Outdoor|outdoor)
   echo "compiling product_type "$product_type
   APK_NAME=Outdoor.apk
-  AOSP_FOLDER=aosp-outdoor
+  AOSP_FOLDER=aosp_outdoor
   FTP_FOLDER=ftp://192.168.2.23/release/outdoor
 
   BIZ_APK_SRC=/home/jenkins/resource/outdoor_latest.apk
@@ -73,7 +73,7 @@ case $product_type in
   Indoor|indoor)
   echo "compilg product_type "$product_type
   APK_NAME=Indoor.apk
-  AOSP_FOLDER=aosp-indoor
+  AOSP_FOLDER=aosp_indoor
   FTP_FOLDER=ftp://192.168.2.23/release/indoor
 
   BIZ_APK_SRC=/home/jenkins/resource/indoor_latest.apk
