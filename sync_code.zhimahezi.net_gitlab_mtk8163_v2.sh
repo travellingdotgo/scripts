@@ -39,8 +39,14 @@ for arrayname in ${arr_groups[@]}; do
         GIT_URI=git@${HOST}:${arrayname_connector}/${item}.git
         echo $GIT_URI
         git clone $GIT_URI
+
     done
     cd ..
     echo
 done
 
+
+for arrayname in ${arr_groups[@]}; do
+    time tar cf ${arrayname}.tar.bz2 -I pbzip2 ${arrayname}
+    time rm -rf ${arrayname}
+done
