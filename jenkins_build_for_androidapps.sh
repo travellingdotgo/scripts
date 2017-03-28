@@ -20,12 +20,29 @@ cd ${PROJ_NAME}
 #compile
 git checkout ${GIT_BRANCH}
 bash ./gradlew clean build
-aapt  dump badging ./app/build/outputs/apk/app-release.apk | grep version
+#VERCODE=`git rev-list HEAD --count`
+#GIT_TAG=`git describe --tags`
+
+VERSION_AAPT=`aapt  dump badging ./app/build/outputs/apk/app-release.apk | grep version`
+echo ${VERSION_AAPT}
 
 #cp & cleanup
 mkdir -p ${TARGET_PATH}
 cp -rf ./app/build/outputs/* ${TARGET_PATH}
 chmod 777 -R ${TARGET_PATH}
+cd ${TARGET_PATH}/apk
+
+
+for  i in `ls|grep apk`
+do
+VERCODE=${VERSION_AAPT#*versionCode\=\'}
+VERCODE=${VERCODE%%\'\ versionName*}
+VERNAME=${VERSION_AAPT#*versionName\=\'}
+VERNAME=${VERNAME%%\'\ platformBuildVersionName*}
+newName=${PROJ_NAME}_verName.${VERNAME}_verCode.${VERCODE}_${GIT_BRANCH}_${TIMESTAMP}_${i}
+mv ${i} ${newName}
+md5sum ${newName} >> md5.txt
+done
 #rm -rf ${WORK_DIR}/${TIMESTAMP}
 
 
