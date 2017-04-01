@@ -20,8 +20,8 @@ cd ${PROJ_NAME}
 #compile
 git checkout ${GIT_BRANCH}
 bash ./gradlew clean build
-#VERCODE=`git rev-list HEAD --count`
-#GIT_TAG=`git describe --tags`
+echo `git rev-list HEAD --count`
+echo `git describe --tags`
 
 VERSION_AAPT=`aapt  dump badging ./app/build/outputs/apk/app-release.apk | grep version`
 echo ${VERSION_AAPT}

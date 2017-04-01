@@ -4,6 +4,7 @@ set -e
 
 PRODUCT_NAME=$1
 LOGO_TYPE=$2
+TIMESTAMP=$3
 
 if [ "$LOGO_TYPE"x = "mlogo"x ]; then
     echo ${LOGO_TYPE}
@@ -13,7 +14,7 @@ else
     echo ${LOGO_TYPE}
 fi
 
-cat ./device/htt/htt8163_e/full_htt8163_e.mk.bac | sed "s:20160826.160000:$TIMESTAMP:g" > ./device/htt/htt8163_e/full_htt8163_e.mk
+cat ./device/htt/htt8163_e/full_htt8163_e.mk.bac | sed "s:20160826.160000:${TIMESTAMP}:g" > ./device/htt/htt8163_e/full_htt8163_e.mk
 
 case ${PRODUCT_NAME} in
 Outdoor|outdoor)
