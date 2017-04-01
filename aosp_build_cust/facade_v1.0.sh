@@ -8,7 +8,6 @@
 # /home/jenkins/resource/*_latest.apk should be ready
 set -e
 
-
 echo  -e "\n\n ---------------  verifying args  ---------------  "  && sleep 1s
 if [ $# -ne 6 ]
 then
@@ -53,7 +52,7 @@ echo  -e "\n\n ---------------  # sync source code  ---------------  "  && sleep
 time bash ${SCRIDIR}/sync_src_8163_v1.0.sh ${PRODUCT_NAME} ${KERN_BRANCH} ${SYST_BRANCH}
 
 echo  -e "\n\n ---------------  # replace  ---------------  "  && sleep 1s
-time bash ${SCRIDIR}/cust_src_8163_v1.0.sh ${PRODUCT_NAME} ${LOGO_TYPE}
+time bash ${SCRIDIR}/cust_src_8163_v1.0.sh ${PRODUCT_NAME} ${LOGO_TYPE} ${TIMESTAMP}
 
 echo  -e "\n\n ---------------  # compile fac  ---------------  "  && sleep 1s
 cp build/Makefile .

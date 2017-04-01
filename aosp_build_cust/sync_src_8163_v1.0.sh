@@ -10,7 +10,8 @@ PRODUCT_NAME=$1
 KERN_BRANCH=$2
 SYST_BRANCH=$3
 
-HOST_NAME=code.zhimahezi.net
+HOST_NAME=code.moredian.com
+HOST_NAME_K=code.moredian.com
 
 echo -e "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - \n"
 echo PRODUCT_NAME= ${PRODUCT_NAME}
@@ -25,14 +26,16 @@ array_kern=( bootable kernel-3.10 )
 for data in ${array_comm[@]}
 do
     echo ${data}  
-    GIT_URI=git@${HOST_NAME}:android-mtk8163e/${data}.git
+    GIT_URI=git@${HOST_NAME}:android_mtk8163e/${data}.git
+    echo ${GIT_URI}
     git clone ${GIT_URI} -b ${SYST_BRANCH}
 done
 
 for data in ${array_diff[@]}
 do
     echo ${data}  
-    GIT_URI=git@${HOST_NAME}:android-mtk8163e-${PRODUCT_NAME}/${data}.git
+    GIT_URI=git@${HOST_NAME}:android_mtk8163e_${PRODUCT_NAME}/${data}.git
+    echo ${GIT_URI}
     git clone ${GIT_URI} -b ${SYST_BRANCH}
 done
 
@@ -40,7 +43,8 @@ done
 for data in ${array_kern[@]}
 do
     echo ${data}  
-    GIT_URI=git@${HOST_NAME}:android-mtk8163e-kernel-${PRODUCT_NAME}/${data}.git
+    GIT_URI=git@${HOST_NAME_K}:android_mtk8163e_kernel_${PRODUCT_NAME}/${data}.git
+    echo ${GIT_URI}
     git clone ${GIT_URI} -b ${KERN_BRANCH}
 done
 
